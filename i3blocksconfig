@@ -1,0 +1,38 @@
+separator=false
+separator_block_width=0
+
+# Check battery every second
+[battery]
+command=./scripts/battery.sh
+interval=1
+color=#ffffff
+background=#e31c25
+
+# Check volume
+[volume]
+command=./scripts/volume.sh
+interval=1
+color=#ffffff
+background=#680101
+
+# Update time every second
+[time]
+command=./scripts/time.sh
+interval=1
+color=#ffffff
+background=#e31c25
+
+# Update date every minute
+[date]
+command=./scripts/date.sh
+interval=60
+color=#ffffff
+background=#680101
+
+# Guess the weather every minute
+[weather]
+command=./scripts/weather.sh
+interval=60
+color=#ffffff
+background=#e31c25
+
