@@ -27,7 +27,12 @@ then
 	rm $HOME/.zshrc
 fi
 ln -s $DIR/.zshrc $HOME/.zshrc
-
+# picom
+if [ -d $HOME/.config/picom ]
+then
+	rm -Rf $HOME/.config/picom
+fi
+ln -s $DIR/picom $HOME/.config/picom
 # i3
 if [ -d $HOME/.config/i3 ]
 then
