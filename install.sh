@@ -1,28 +1,52 @@
 #!/bin/bash
 DIR=$(dirname $(realpath "$0"))
 # alacritty configuration
-rm $HOME/.alacritty.yml
+if [ -f $HOME/.alacritty.yml ]
+then
+	rm $HOME/.alacritty.yml
+fi
 ln -s $DIR/.alacritty.yml $HOME/.alacritty.yml
 # install oh-my-zsh
-rm -Rf $HOME/.oh-my-zsh
+if [ -d $HOME/.oh-my-zsh ]
+then
+	rm -Rf $HOME/.oh-my-zsh
+fi
 git clone http://github.com/robbyrussell/oh-my-zsh $HOME/.oh-my-zsh
 # install custom theme(s)
-rm $ZSH/custom/themes/kafeitu-custom.zsh-theme
+if [ -f $HOME/kafeitu-custom.zsh-theme ]
+then
+	rm $ZSH/custom/themes/kafeitu-custom.zsh-theme
+fi
 ln -s $DIR/kafeitu-custom.zsh-theme $ZSH/custom/themes/kafeitu-custom.zsh-theme
 # install custom plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH/custom/plugins/zsh-syntax-highlighting
 # install zsh configuration
-rm $HOME/.zshrc
+if [ -f $HOME/.zshrc ]
+then
+	rm $HOME/.zshrc
+fi
 ln -s $DIR/.zshrc $HOME/.zshrc
+
 # i3
-rm $HOME/.config/i3/config
-ln -s $DIR/i3config $HOME/.config/i3/config
+if [ -d $HOME/.config/i3 ]
+then
+	rm -Rf $HOME/.config/i3
+fi
+ln -s $DIR/i3 $HOME/.config/i3
 # i3blocks
-rm $HOME/.config/i3blocks/config
-ln -s $DIR/i3blocksconfig $HOME/.config/i3blocks/config
-rm -Rf $HOME/.config/i3blocks/scripts
-ln -s $DIR/i3blocksscripts $HOME/.config/i3blocks/scripts
+if [ -d $HOME/.config/i3blocks ]
+then
+	rm -Rf $HOME/.config/i3blocks
+fi
+ln -s $DIR/i3blocks $HOME/.config/i3blocks
+# rofi
+if [ -d $HOME/.config/rofi ]
+then
+	rm -Rf $HOME/.config/rofi
+fi
+ln -s $DIR/rofi $HOME/.config/rofi
+
 # Done
 echo "Done. Restarting!"
 shutdown now -r
