@@ -12,6 +12,7 @@ background=#e31c25
 [volume]
 command=./scripts/volume.sh
 interval=1
+signal=1
 color=#ffffff
 background=#680101
 
