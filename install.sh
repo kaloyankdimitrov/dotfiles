@@ -52,6 +52,13 @@ then
 fi
 ln -s $DIR/rofi $HOME/.config/rofi
 
+# nvim
+if [ -d $HOME/.config/nvim ]
+then
+	rm -Rf $HOME/.config/nvim
+fi
+ln -s $DIR/nvim $HOME/.config/nvim
+
 # Done
 echo "Done. Restarting!"
 shutdown now -r

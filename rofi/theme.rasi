@@ -8,17 +8,17 @@
 	dark-yellow:   #978f00;
 
 	selected-normal-foreground:  @foreground;
-	selected-normal-background:  @dark;
+	selected-normal-background:  @bright;
 	normal-foreground:           @foreground;
-	normal-background:           @bright;
+	normal-background:           @dark;
 	alternate-normal-foreground: @foreground;
-	alternate-normal-background: @bright;
+	alternate-normal-background: @dark;
 	selected-urgent-foreground:  @black;
 	selected-urgent-background:  @dark-yellow;
 	urgent-foreground:           @black;
 	urgent-background:           @bright-yellow;
 	active-foreground:           @foreground;
-	active-background:           @dark;
+	active-background:           @bright;
 	alternate-urgent-foreground: @black;
 	alternate-urgent-background: @bright-yellow;
 	selected-active-foreground:  @foreground;

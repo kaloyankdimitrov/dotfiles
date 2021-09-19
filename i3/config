@@ -19,15 +19,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:JetBrains Mono 14
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
+# light locker
 exec --no-startup-id light-locker
 
 # set functions keys
@@ -40,7 +32,7 @@ exec --no-startup-id nm-applet
 # Start the compositor
 exec --no-startup-id picom --experimental-backends
 # Start the wallpaper
-exec --no-startup-id feh --bg-scale ~/.config/wallpaper.*
+exec --no-startup-id nitrogen --restore
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_bar pkill -SIGRTMIN+1 i3blocks
@@ -77,6 +69,8 @@ bindsym $mod+Shift+c exec rofi -show calc -modi calc -no-show-match -no-sort -ca
 bindsym $mod+Shift+w exec rofi -show window
 # emojis
 bindsym $mod+Shift+e exec rofi -show emoji -modi emoji
+# school links
+bindsym $mod+b exec ~/.config/rofi/scripts/browse.sh --input | rofi -dmenu -p browse\ to | $HOME/.config/rofi/scripts/browse.sh --output
 
 # change focus
 bindsym $mod+h focus left
