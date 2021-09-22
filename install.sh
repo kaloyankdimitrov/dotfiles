@@ -11,7 +11,8 @@ if [ -d $HOME/.oh-my-zsh ]
 then
 	rm -Rf $HOME/.oh-my-zsh
 fi
-git clone http://github.com/robbyrussell/oh-my-zsh $HOME/.oh-my-zsh
+export RUNZSH=no
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # install custom theme(s)
 if [ -f $HOME/kafeitu-custom.zsh-theme ]
 then

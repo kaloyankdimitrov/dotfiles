@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ ! -z $button ]
 then
-	pavucontrol
+	i3-msg exec pavucontrol > /dev/null
 fi
 comm=$(amixer -D pulse get Master)
 leftVolume=$(echo $comm | awk -F'Left:|[][]' 'BEGIN {RS=""}{print $3}')

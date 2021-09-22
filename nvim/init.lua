@@ -38,3 +38,6 @@ cmd('au FileType * set fo-=r fo-=c fo -=o')
 
 -- syntax highlighting
 cmd('syntax on')
+
+-- save as sudo hack
+vim.cmd([[cnoreabbrev <expr> wr ((getcmdtype() is# ':' && getcmdline() is# 'wr')?('w !sudo tee %'):('wr'))]])
