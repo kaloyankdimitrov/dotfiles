@@ -40,8 +40,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_bar
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_bar
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_bar
-# Start Logitech keyboard lighting
-exec --no-startup-id keyledsd
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -70,7 +68,7 @@ bindsym $mod+Shift+w exec rofi -show window
 # emojis
 bindsym $mod+Shift+e exec rofi -show emoji -modi emoji
 # school links
-bindsym $mod+b exec ~/.config/rofi/scripts/browse.sh --input | rofi -dmenu -p browse\ to | $HOME/.config/rofi/scripts/browse.sh --output
+bindsym $mod+b exec ~/.config/rofi/scripts/browse.sh --input | rofi -dmenu -i -p browse\ to | $HOME/.config/rofi/scripts/browse.sh --output
 
 # change focus
 bindsym $mod+h focus left
