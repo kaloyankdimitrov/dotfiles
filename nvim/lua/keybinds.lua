@@ -49,4 +49,4 @@ utils.map('x', '<leader>cu', '<plug>NERDCommenterUncomment', {noremap = false, s
 utils.map('n', '<leader>ff', ':Files<CR>', { silent = true })
 utils.map('n', '<leader>fg', ':GFiles<CR>', { silent = true })
 utils.map('n', '<leader>fb', ':Buffers<CR>', { silent = true })
-utils.map('n', '<leader>fg', ':Rg ')
+utils.map('n', '<leader>fr', ':Rg ')

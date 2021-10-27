@@ -17,5 +17,11 @@ au VimEnter * hi MsgArea guifg=#00ffff guibg=NONE gui=NONE
 au VimEnter * hi Pmenu guifg=#ffffff guibg=#680101
 au VimEnter * hi PmenuSel guifg=#ffffff guibg=#e31c25
 au VimEnter * hi PmenuSbar guifg=#ffffff guibg=#e31c25
+au VimEnter * hi Folded guifg=#ffffff guibg=#e31c25
+au VimEnter * hi FoldedColumn guifg=#ffffff guibg=#e31c25
+au VimEnter * hi SignColumn guifg=#ffffff guibg=NONE
+au VimEnter * hi LspDiagnosticsDefaultError guifg=#e31c25 guibg=NONE
+au VimEnter * hi CmpItemAbbrDefault guifg=#ffffff guibg=NONE
+au VimEnter * hi CmpItemAbbrDeprecatedDefault guifg=#ffffff guibg=NONE
 ]])
 

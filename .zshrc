@@ -102,6 +102,8 @@ export LANG=en_US.UTF-8
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
 export VISUAL='nvim'
+# FZF command
+export FZF_DEFAULT_COMMAND="find -L"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

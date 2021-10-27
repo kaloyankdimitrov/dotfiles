@@ -9,10 +9,13 @@ Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
--- Plug ('neoclide/coc.nvim', {branch = 'release'})
+Plug('donRaphaco/neotex', {['for'] = 'tex'})
+Plug('tami5/lspsaga.nvim', {branch = 'nvim51'})
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'junegunn/fzf.vim'
 vim.call 'plug#end'
