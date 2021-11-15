@@ -41,10 +41,12 @@ mainbox {
 message {
     border:     1px dash 0px 0px ;
     text-color: @foreground;
+	background-color: @background;
     padding:    2px 0px 0px ;
 }
 textbox {
     text-color: @foreground;
+	background-color: @background;
 }
 listview {
     fixed-height: 0;
