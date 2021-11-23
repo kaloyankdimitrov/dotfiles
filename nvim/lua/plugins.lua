@@ -10,7 +10,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug('donRaphaco/neotex', {['for'] = 'tex'})
-Plug('tami5/lspsaga.nvim', {branch = 'nvim51'})
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'

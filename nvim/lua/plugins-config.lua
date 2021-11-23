@@ -64,15 +64,6 @@ cmp.setup({
 	}
 })
 
--- Saga
-local saga = require 'lspsaga'
-saga.init_lsp_saga {
-  error_sign = '',
-  warn_sign = '',
-  hint_sign = '',
-  infor_sign = '',
-}
-
 local lsp = require 'lspconfig'
 local protocol = require 'vim.lsp.protocol'
 local on_attach = function(client, buffer)
@@ -82,14 +73,6 @@ local on_attach = function(client, buffer)
 	-- Mappings
 	local opts = { noremap = true, silent = true }
 
-	-- go to definition
-	buf_set_keymap('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
-	-- Hover doc
-	buf_set_keymap('n', 'D', '<cmd>Lspsaga hover_doc<CR>', opts)
-	-- Async LSP Finder
-	buf_set_keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
-	-- Jump diagnostic
-	buf_set_keymap('n', '<C-j>', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 	-- Format on save
 	if client.resolved_capabilities.document_formatting then
 		vim.api.nvim_command [[augroup Format]]
@@ -104,9 +87,9 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
-    -- This sets the spacing and the prefix, obviously.
+    -- This sets the spacing and the prefix
     virtual_text = {
-      spacing = 4,
+      spacing = 2,
       prefix = ''
     }
   }

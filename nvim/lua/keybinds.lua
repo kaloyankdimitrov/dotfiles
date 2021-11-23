@@ -50,3 +50,11 @@ utils.map('n', '<leader>ff', ':Files<CR>', { silent = true })
 utils.map('n', '<leader>fg', ':GFiles<CR>', { silent = true })
 utils.map('n', '<leader>fb', ':Buffers<CR>', { silent = true })
 utils.map('n', '<leader>fr', ':Rg ')
+
+-- LSP
+-- Show floating diagnostics
+utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = false, silent = true})
+utils.map('n', 'D', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = false, silent = true})
+utils.map('n', 'fd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', {noremap = false, silent = true})
+utils.map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = false, silent = true})
+utils.map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = false, silent = true})
