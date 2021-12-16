@@ -161,10 +161,12 @@ lsp.jsonls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+lsp.hls.setup{}
 lsp.texlab.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+lsp.pyright.setup{}
 
 -- Snippets
 local ls = require 'luasnip'
