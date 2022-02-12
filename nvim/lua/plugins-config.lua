@@ -167,6 +167,10 @@ lsp.texlab.setup {
 	capabilities = capabilities
 }
 lsp.pyright.setup{}
+lsp.rust_analyzer.setup{
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 
 -- Snippets
 local ls = require 'luasnip'
