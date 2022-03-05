@@ -30,10 +30,10 @@ interval=60
 color=#ffffff
 background=#680101
 
-# Guess the weather every minute
+# Guess the weather every 5 minute
 [weather]
 command=./scripts/weather.sh
-interval=60
+interval=300
 color=#ffffff
 background=#e31c25
 
