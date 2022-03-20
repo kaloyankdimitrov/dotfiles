@@ -1,7 +1,7 @@
-background_opacity: 0.8
 cursor:
         style: Block
 window: 
+        opacity: 0.8
         dimensions:
                 columns: 0
                 lines: 0
@@ -77,3 +77,5 @@ mouse:
         triple_click: { threshold: 300 }
         hints: 
                 program: xdg-open
+env:
+  TERM: alacritty
