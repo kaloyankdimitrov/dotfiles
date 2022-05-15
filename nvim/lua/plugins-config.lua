@@ -1,9 +1,29 @@
+-- Startify
+vim.g.startify_commands = {
+	{ pi = { 'Install Plugins', ':PlugInstall' } },
+	{ pu = { 'Update Plugins', ':PlugUpdate' } },
+	{ pc = { 'Clean Plugins', ':PlugClean' } },
+	{ pv = { 'Update vim-plug', ':PlugUpgrade' } }
+}
+vim.g.startify_bookmarks = {
+	{ ww = '~/Dropbox/VimWiki/index.md' },
+	{ df = '~/dotfiles' }
+}
+vim.g.startify_lists = { 
+	{ type = 'dir', header = { 'Recently edited files in '..vim.fn.getcwd()..':' } }, 
+	{ type = 'files', header = { 'Files' } },
+	{ type = 'commands', header = { 'Commands' } },
+	{ type = 'bookmarks', header = { 'Bookmarks' } } 
+}
+-- custom header
+vim.g.startify_custom_header = {
+	'	*----------------------------------------------------*',
+	'	|  "I have not failed.                               |',
+	'	|   I have just found 10,000 ways that won\'t work."  |',
+	'	|                              -- Thomas A. Edison   |',
+	'	*----------------------------------------------------*'
+}
 -- NERD Tree
--- Start NERDTree unless a file or session is specified
-vim.cmd([[
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | wincmd p | endif]])
-
 -- Exit Vim if NERDTree is the only window remaining in the only tab.
 vim.cmd("autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif")
 
@@ -14,7 +34,7 @@ vim.cmd("autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERD
 vim.cmd('autocmd BufEnter * if bufname("#") =~ "NERD_tree_d+" && bufname("%") !~ "NERD_tree_d+" && winnr("$") > 1 | let buf=bufnr() | buffer# | execute "normal! <C-W>w" | execute "buffer".buf | endif')
 
 -- Remove status Line
--- vim.g.NERDTreeStatusline = '%#NonText#'
+vim.g.NERDTreeStatusline = '%#NonText#'
 
 -- Delete buffer if file is deleted
 vim.g.NERDTreeAutoDeleteBuffer = true
@@ -192,4 +212,14 @@ ls.snippets = {
 		})
 	}
 }
-
+-- VimWiki
+vim.g.vimwiki_list = {
+	{
+		path = '~/vimwiki', 
+		syntax = 'markdown', 
+		ext = '.md'
+	}
+}
+vim.g.vimwiki_markdown_link_ext = 1
+vim.g.taskwiki_markup_syntax = 'markdown'
+vim.g.markdown_folding = 1

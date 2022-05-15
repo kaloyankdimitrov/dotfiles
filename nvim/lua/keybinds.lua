@@ -34,8 +34,11 @@ utils.map('n', 'yf', ':let @+=expand("%:p")<CR>', {silent = true})
 -- copy pwd to clipboard
 utils.map('n', 'yd', ':let @+=expand("%:p:h")<CR>', { silent = true})
 
--- NERD Tree
-utils.map('n', '<leader>t', ':NERDTreeToggle<CR>', {silent = true})
+-- Startify
+utils.map('n', '<leader>st', ':Startify<CR>', {silent = true})
+-- NERDTree
+utils.map('n', '<leader>tt', ':NERDTreeToggle<CR>', {silent = true})
+utils.map('n', '<leader>tf', ':NERDTreeFind<CR>', {silent = true})
 
 -- NERD Commenter
 utils.map('n', '<leader>cc', '<plug>NERDCommenterToggle', {noremap = false, silent = true})
