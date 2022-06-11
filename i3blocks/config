@@ -5,6 +5,15 @@ separator_block_width=0
 [battery]
 command=./scripts/battery.sh
 interval=1
+signal=1
+color=#ffffff
+background=#680101
+
+# Check keyboard layout every second
+[keyboard]
+command=./scripts/kb.sh
+interval=1
+signal=1
 color=#ffffff
 background=#e31c25
 

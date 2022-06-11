@@ -54,12 +54,12 @@ ZSH_THEME="kafeitu-custom"
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -154,11 +154,3 @@ pa-playbackset() {
 	# apply changes to one running app to use the new output device
 	pacmd move-sink-input "$1" "$2" &> /dev/null
 }
-
-
-#syntax highlighting
-ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=blue"
-ZSH_HIGHLIGHT_STYLES[command]="fg=107"
-ZSH_HIGHLIGHT_STYLES[builtin]="fg=107"
-ZSH_HIGHLIGHT_STYLES[alias]="fg=107"
-
