@@ -41,7 +41,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_bar
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_bar
 # change keyboard layout
-bindsym Shift+space exec --no-startup-id xkblayout-state set +1 && $refresh_bar
+bindsym Ctrl+space exec --no-startup-id xkblayout-state set +1 && $refresh_bar
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

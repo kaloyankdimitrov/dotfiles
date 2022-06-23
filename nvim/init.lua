@@ -8,7 +8,7 @@ require 'plugins-config'
 require 'theme'
 require 'statusline'
 opt.termguicolors = true
-cmd('colorscheme ron')
+cmd('colorscheme desert')
 opt.compatible = false
 -- searching
 opt.showmatch = true

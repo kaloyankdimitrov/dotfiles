@@ -6,8 +6,8 @@ window:
                 columns: 0
                 lines: 0
         padding:
-                x: 0
-                y: 0
+                x: 10
+                y: 10
         dynamic_title: true
         history: 10000
 font:
@@ -27,7 +27,7 @@ font:
 
 colors: 
         primary:
-                background: "#330010"
+                background: "#550010"
                 foreground: "#ffffff"
         cursor: 
                 text: "#000000"
