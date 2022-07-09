@@ -63,11 +63,6 @@ vim.g.neotex_enable = 2
 local cmp = require'cmp'
 
 cmp.setup({
-	snippet = {
-      expand = function(args)
-		require('luasnip').lsp_expand(args.body)
-      end,
-    },
 	mapping = {
 	  ['<C-d>'] = cmp.mapping.scroll_docs(-4),
 	  ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -79,7 +74,6 @@ cmp.setup({
 	},
 	sources = {
 	  { name = 'nvim_lsp' },
-	  { name = 'luasnip' },
 	  { name = 'buffer' },
 	}
 })
@@ -168,8 +162,7 @@ lsp.diagnosticls.setup {
     }
   }
 }
-
-lsp.clangd.setup {
+lsp.ccls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
@@ -192,26 +185,6 @@ lsp.rust_analyzer.setup{
 	capabilities = capabilities
 }
 
--- Snippets
-local ls = require 'luasnip'
-ls.snippets = {
-	cpp = {
-		ls.snippet('comp-start', {
-			ls.text_node({
-				[[#include <bits/stdc++.h>]], 
-				[[#define endl '\n']],
-				[[int main() {]],
-				'\t'
-			}),
-			ls.insert_node(0),
-			ls.text_node({
-				'',
-				[[	return 0;]],
-				[[}]]
-			})
-		})
-	}
-}
 -- VimWiki
 vim.g.vimwiki_list = {
 	{

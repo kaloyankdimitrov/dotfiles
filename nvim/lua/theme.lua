@@ -8,7 +8,6 @@ au VimEnter * hi NonText guifg=#00ffff guibg=NONE gui=NONE
 au VimEnter * hi LineNr guifg=#00ffff guibg=NONE gui=NONE
 au VimEnter * hi CursorLineNr guifg=#f7ef70 guibg=NONE gui=NONE
 au VimEnter * hi String guifg=#f7ef70
-au VimEnter * hi Comment guifg=#aa0000
 au VimEnter * hi VertSplit guifg=#ffffff guibg=NONE gui=NONE
 au VimEnter * hi Type guifg=#e31c25
 au VimEnter * hi StatusLine guifg=#00ffff guibg=NONE gui=NONE

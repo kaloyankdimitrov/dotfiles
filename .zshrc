@@ -3,9 +3,10 @@ export GOPATH="/home/freakycoder/go"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Custom $PATH exports
+export PATH="$PATH:/$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
 # npm conflicts
 export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
@@ -154,3 +155,5 @@ pa-playbackset() {
 	# apply changes to one running app to use the new output device
 	pacmd move-sink-input "$1" "$2" &> /dev/null
 }
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
