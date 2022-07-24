@@ -7,10 +7,9 @@ export PATH="$PATH:/$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
-# npm conflicts
-export PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
-
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$PATH:./node_modules/.bin"
+export NVM_LAZY=1
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -86,6 +85,7 @@ plugins=(
 		history
 		heroku 
 		npm
+		nvm
 		sudo
 		zsh-autosuggestions
 		zsh-syntax-highlighting
@@ -155,6 +155,3 @@ pa-playbackset() {
 	# apply changes to one running app to use the new output device
 	pacmd move-sink-input "$1" "$2" &> /dev/null
 }
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-source /usr/share/nvm/init-nvm.sh

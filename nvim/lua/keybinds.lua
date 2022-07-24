@@ -49,12 +49,11 @@ utils.map('n', '<leader>cu', '<plug>NERDCommenterUncomment', {noremap = false, s
 utils.map('x', '<leader>cu', '<plug>NERDCommenterUncomment', {noremap = false, silent = true})
 
 -- FZF
-utils.map('n', '<leader>ff', ':Files<CR>', { silent = true })
-utils.map('n', '<leader>fg', ':GFiles<CR>', { silent = true })
-utils.map('n', '<leader>fb', ':Buffers<CR>', { silent = true })
-utils.map('n', '<leader>fr', ':Rg ')
-
--- LSP
+local telescope_builtin = require 'telescope.builtin'
+utils.map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true })
+utils.map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true })
+utils.map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true })
+utils.map('n', '<leader>fr', ':Telescope live_grep<CR>')
 -- Show floating diagnostics
 utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = false, silent = true})
 utils.map('n', 'D', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = false, silent = true})

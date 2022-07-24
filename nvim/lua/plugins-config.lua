@@ -63,6 +63,11 @@ vim.g.neotex_enable = 2
 local cmp = require'cmp'
 
 cmp.setup({
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end
+	},
 	mapping = {
 	  ['<C-d>'] = cmp.mapping.scroll_docs(-4),
 	  ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -75,6 +80,7 @@ cmp.setup({
 	sources = {
 	  { name = 'nvim_lsp' },
 	  { name = 'buffer' },
+	  { name = 'luasnip' },
 	}
 })
 
@@ -109,59 +115,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
-  init_options = {
-    linters = {
-      eslint = {
-        command = 'eslint',
-        rootPatterns = { '.git' },
-        debounce = 100,
-        args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-        sourceName = 'eslint',
-        parseJson = {
-          errorsRoot = '[0].messages',
-          line = 'line',
-          column = 'column',
-          endLine = 'endLine',
-          endColumn = 'endColumn',
-          message = '[eslint] ${message} [${ruleId}]',
-          security = 'severity'
-        },
-        securities = {
-          [2] = 'error',
-          [1] = 'warning'
-        }
-      },
-    },
-    filetypes = {
-      javascript = 'eslint',
-      javascriptreact = 'eslint',
-      typescript = 'eslint',
-      typescriptreact = 'eslint',
-    },
-    formatters = {
-      prettier = {
-        command = 'prettier',
-        args = { '--stdin-filepath', '%filename' }
-      }
-    },
-    formatFiletypes = {
-      css = 'prettier',
-      javascript = 'prettier',
-      javascriptreact = 'prettier',
-      json = 'prettier',
-      scss = 'prettier',
-      less = 'prettier',
-      typescript = 'prettier',
-      typescriptreact = 'prettier',
-      json = 'prettier',
-      markdown = 'prettier',
-    }
-  }
-}
 lsp.ccls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
@@ -184,6 +137,15 @@ lsp.rust_analyzer.setup{
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+local null_ls = require'null-ls'
+null_ls.setup({
+	sources = {
+		null_ls.builtins.diagnostics.eslint_d,
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.prettierd
+	}
+})
 
 -- VimWiki
 vim.g.vimwiki_list = {
