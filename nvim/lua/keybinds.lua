@@ -48,12 +48,15 @@ utils.map('x', '<leader>cs', '<plug>NERDCommenterSexy', {noremap = false, silent
 utils.map('n', '<leader>cu', '<plug>NERDCommenterUncomment', {noremap = false, silent = true})
 utils.map('x', '<leader>cu', '<plug>NERDCommenterUncomment', {noremap = false, silent = true})
 
--- FZF
-local telescope_builtin = require 'telescope.builtin'
+-- Telescope
 utils.map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true })
 utils.map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true })
 utils.map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true })
-utils.map('n', '<leader>fr', ':Telescope live_grep<CR>')
+utils.map('n', '<leader>fr', ':Telescope live_grep<CR>', { silent = true })
+utils.map('n', '<leader>fgst', ':Telescope git_status<CR>', { silent = true })
+-- Harpoon
+utils.map('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')
+utils.map('n', '<leader>hm', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { silent = true })
 -- Show floating diagnostics
 utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = false, silent = true})
 utils.map('n', 'D', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = false, silent = true})

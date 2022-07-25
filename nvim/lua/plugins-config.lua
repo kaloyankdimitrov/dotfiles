@@ -147,6 +147,31 @@ null_ls.setup({
 	}
 })
 
+-- Telescope
+local action_layout = require("telescope.actions.layout")
+require'telescope'.setup {
+	defaults = {	
+		layout_strategy = 'flex',
+		layout_config = { 
+			width = 0.95, 
+			height = 0.95,
+			vertical = {
+				preview_cutoff = 1				
+			}
+		},
+		file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+		grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,	
+		mappings = {
+			i = {
+				['?'] = action_layout.toggle_preview,
+			},
+			n = {
+				['?'] = action_layout.toggle_preview,
+			}
+		}
+	}
+}
+
 -- VimWiki
 vim.g.vimwiki_list = {
 	{

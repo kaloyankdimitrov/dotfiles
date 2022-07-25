@@ -20,5 +20,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.0' })
+Plug 'ThePrimeagen/harpoon'
 Plug 'vimwiki/vimwiki'
 vim.call 'plug#end'
