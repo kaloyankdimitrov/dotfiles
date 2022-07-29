@@ -122,6 +122,10 @@ lsp.ccls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+lsp.html.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 lsp.tsserver.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
