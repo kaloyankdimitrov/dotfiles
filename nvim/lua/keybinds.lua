@@ -54,6 +54,8 @@ utils.map('n', '<leader>fh', ':Telescope help_tags<CR>', { silent = true })
 utils.map('n', '<leader>fb', ':Telescope buffers<CR>', { silent = true })
 utils.map('n', '<leader>fr', ':Telescope live_grep<CR>', { silent = true })
 utils.map('n', '<leader>fgst', ':Telescope git_status<CR>', { silent = true })
+-- Lazygit
+utils.map('n', '<leader>gg', ':LazyGit<CR>', { silent = true })
 -- Harpoon
 utils.map('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')
 utils.map('n', '<leader>hm', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { silent = true })

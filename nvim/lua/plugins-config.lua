@@ -60,6 +60,11 @@ vim.g.NERDTrimTailingWhitespace = true
 
 -- LaTex
 vim.g.neotex_enable = 2
+-- LazyGit
+vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window
+vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
+vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'} -- customize lazygit popup window corner characters
+vim.glazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floating window if available
 
 -- LSP
 -- Cmp
@@ -87,6 +92,7 @@ cmp.setup({
 	}
 })
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp = require 'lspconfig'
 local protocol = require 'vim.lsp.protocol'
 local on_attach = function(client, buffer)
@@ -97,11 +103,15 @@ local on_attach = function(client, buffer)
 	local opts = { noremap = true, silent = true }
 
 	-- Format on save
-	if client.resolved_capabilities.document_formatting then
-		vim.api.nvim_command [[augroup Format]]
-		vim.api.nvim_command [[autocmd! * <buffer>]]
-		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-		vim.api.nvim_command [[augroup END]]
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.formatting_sync()
+			end,
+		})
 	end
 end
 
