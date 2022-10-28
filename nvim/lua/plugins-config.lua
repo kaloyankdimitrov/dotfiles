@@ -26,30 +26,26 @@ vim.g.startify_custom_header = {
 -- don't change working dir
 vim.g.startify_change_to_dir = 0
 vim.g.startify_change_to_vcs_root = 1
--- NERD Tree
--- Exit Vim if NERDTree is the only window remaining in the only tab.
-vim.cmd("autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif")
-
--- Close the tab if NERDTree is the only window remaining in it.
-vim.cmd("autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif")
-
--- If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-vim.cmd('autocmd BufEnter * if bufname("#") =~ "NERD_tree_d+" && bufname("%") !~ "NERD_tree_d+" && winnr("$") > 1 | let buf=bufnr() | buffer# | execute "normal! <C-W>w" | execute "buffer".buf | endif')
-
--- Remove status Line
-vim.g.NERDTreeStatusline = '%#NonText#'
-
--- Delete buffer if file is deleted
-vim.g.NERDTreeAutoDeleteBuffer = true
--- Make it prettier
-vim.g.NERDTreeMinimalUI = true
--- Show hidden files
-vim.g.NERDTreeShowHidden = true
-
--- Andrew's NERDTree
-vim.g.andrews_nerdtree_buffer_fs_menu = true
-vim.g.andrews_nerdtree_git_filter = true
-vim.g.andrews_nerdtree_interactive_edit = true
+-- nvim-tree
+require('nvim-tree').setup({	
+	view = {
+		mappings = {
+		  list = {
+			{ key = "<C-[>", action = "dir_up" },
+		  },
+		},
+	},
+})
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
+  pattern = "NvimTree_*",
+  callback = function()
+    local layout = vim.api.nvim_call_function("winlayout", {})
+    if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("confirm quit") end
+  end
+})
 
 -- NERD Commenter
 vim.g.NERDCreateDefaultMappings = false
@@ -64,7 +60,7 @@ vim.g.neotex_enable = 2
 vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window
 vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
 vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'} -- customize lazygit popup window corner characters
-vim.glazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floating window if available
+vim.glazygit_floating_window_use_plenary = 1 -- use plenary.nvim to manage floating window if available
 
 -- LSP
 -- Cmp

@@ -36,9 +36,10 @@ utils.map('n', 'yd', ':let @+=expand("%:p:h")<CR>', { silent = true})
 
 -- Startify
 utils.map('n', '<leader>st', ':Startify<CR>', {silent = true})
--- NERDTree
-utils.map('n', '<leader>tt', ':NERDTreeToggle<CR>', {silent = true})
-utils.map('n', '<leader>tf', ':NERDTreeFind<CR>', {silent = true})
+
+-- nvim-tree
+utils.map('n', '<leader>tt', ':NvimTreeToggle<CR>', {silent = true})
+utils.map('n', '<leader>tf', ':NvimTreeFindFile<CR>', {silent = true})
 
 -- NERD Commenter
 utils.map('n', '<leader>cc', '<plug>NERDCommenterToggle', {noremap = false, silent = true})
