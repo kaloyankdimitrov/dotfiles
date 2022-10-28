@@ -109,13 +109,13 @@ local on_attach = function(client, buffer)
 			group = augroup,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.format()
 			end,
 		})
 	end
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -131,6 +131,15 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 lsp.ccls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
+}
+lsp.arduino_language_server.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = {
+		'arduino-language-server',
+		'-cli-config', '$HOME/.arduino15/arduino-cli.yaml',
+		'-fqbn', 'arduino:avr:uno'
+	}
 }
 lsp.html.setup {
 	on_attach = on_attach,
