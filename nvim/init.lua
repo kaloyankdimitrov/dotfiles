@@ -5,10 +5,7 @@ local indent = 4
 require 'plugins'
 require 'keybinds'
 require 'plugins-config'
-require 'theme'
 require 'statusline'
-opt.termguicolors = true
-cmd('colorscheme desert')
 opt.compatible = false
 -- searching
 opt.showmatch = true
@@ -41,3 +38,8 @@ cmd('syntax on')
 
 -- save as sudo hack
 vim.cmd([[cnoreabbrev <expr> wr ((getcmdtype() is# ':' && getcmdline() is# 'wr')?('w !sudo tee %'):('wr'))]])
+
+-- colors
+opt.termguicolors = true
+cmd('colorscheme desert')
+require 'theme'

@@ -2,25 +2,25 @@
 vim.opt.fillchars = 'vert: '
 
 -- colors
-vim.cmd([[
-au VimEnter * hi Normal guifg=#ffffff guibg=NONE gui=NONE
-au VimEnter * hi NonText guifg=#00ffff guibg=NONE gui=NONE
-au VimEnter * hi LineNr guifg=#00ffff guibg=NONE gui=NONE
-au VimEnter * hi CursorLineNr guifg=#f7ef70 guibg=NONE gui=NONE
-au VimEnter * hi String guifg=#f7ef70
-au VimEnter * hi VertSplit guifg=#ffffff guibg=NONE gui=NONE
-au VimEnter * hi Type guifg=#e31c25
-au VimEnter * hi StatusLine guifg=#00ffff guibg=NONE gui=NONE
-au VimEnter * hi StatusLineNC guifg=#00aaaa guibg=NONE gui=NONE
-au VimEnter * hi MsgArea guifg=#00ffff guibg=NONE gui=NONE
-au VimEnter * hi Pmenu guifg=#ffffff guibg=#680101
-au VimEnter * hi PmenuSel guifg=#ffffff guibg=#e31c25
-au VimEnter * hi PmenuSbar guifg=#ffffff guibg=#e31c25
-au VimEnter * hi Folded guifg=#ffffff guibg=#e31c25
-au VimEnter * hi FoldedColumn guifg=#ffffff guibg=#e31c25
-au VimEnter * hi SignColumn guifg=#ffffff guibg=NONE
-au VimEnter * hi LspDiagnosticsDefaultError guifg=#e31c25 guibg=NONE
-au VimEnter * hi CmpItemAbbrDefault guifg=#ffffff guibg=NONE
-au VimEnter * hi CmpItemAbbrDeprecatedDefault guifg=#ffffff guibg=NONE
-]])
+local highlight = vim.api.nvim_set_hl
+highlight(0, 'Normal', { fg='#ffffff' })
+highlight(0, 'NormalFloat', { fg='#ffffff' })
+highlight(0, 'NonText', { fg='#00ffff' })
+highlight(0, 'LineNr', { fg='#00ffff' })
+highlight(0, 'CursorLineNr', { fg='#f7ef70' })
+highlight(0, 'String', { fg='#f7ef70' })
+highlight(0, 'VertSplit', { fg='#ffffff' })
+highlight(0, 'Type', { fg='#e31c25' })
+highlight(0, 'StatusLine', { fg='#00ffff' })
+highlight(0, 'StatusLineNC', { fg='#00aaaa' })
+highlight(0, 'MsgArea', { fg='#00ffff' })
+highlight(0, 'Pmenu', { fg='#ffffff', bg='#680101' })
+highlight(0, 'PmenuSel', { fg='#ffffff', bg='#e31c25' })
+highlight(0, 'PmenuSbar', { fg='#ffffff', bg='#e31c25' })
+highlight(0, 'Folded', { fg='#ffffff', bg='#e31c25' })
+highlight(0, 'FoldedColumn', { fg='#ffffff', bg='#e31c25' })
+highlight(0, 'SignColumn', { fg='#ffffff' })
+highlight(0, 'LspDiagnosticsDefaultError', { fg='#e31c25' })
+highlight(0, 'CmpItemAbbrDefault', { fg='#ffffff' })
+highlight(0, 'CmpItemAbbrDeprecatedDefault', { fg='#ffffff' })
 
