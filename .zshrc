@@ -3,13 +3,13 @@ export GOPATH="/home/freakycoder/go"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Custom $PATH exports
-export PATH="$PATH:/$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
-export NVM_LAZY=1
+zstyle ':omz:plugins:nvm' lazy true
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
