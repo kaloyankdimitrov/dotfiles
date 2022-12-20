@@ -25,9 +25,9 @@ utils.map('n', '<C-A-l>', '<C-W>L')
 
 -- create panes
 -- vertical
-utils.map('n', '<A-v>', '<C-W>v<C-W>l')
+utils.map('n', '<A-c>', '<C-W>v<C-W>l')
 -- horizontal
-utils.map('n', '<A-c>', '<C-W>S<C-W>j')
+utils.map('n', '<A-v>', '<C-W>S<C-W>j')
 
 -- copy filepath to clipboard
 utils.map('n', 'yf', ':let @+=expand("%:p")<CR>', {silent = true})
