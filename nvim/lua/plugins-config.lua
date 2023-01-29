@@ -91,6 +91,7 @@ cmp.setup({
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp = require 'lspconfig'
 local protocol = require 'vim.lsp.protocol'
+
 local on_attach = function(client, buffer)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -149,12 +150,18 @@ lsp.jsonls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
-lsp.hls.setup{}
+lsp.hls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 lsp.texlab.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
-lsp.pyright.setup{}
+lsp.pylsp.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 lsp.rust_analyzer.setup{
 	on_attach = on_attach,
 	capabilities = capabilities

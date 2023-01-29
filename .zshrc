@@ -6,7 +6,7 @@ export GOPATH="/home/freakycoder/go"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
 zstyle ':omz:plugins:nvm' lazy true
