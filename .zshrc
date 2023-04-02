@@ -9,6 +9,9 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$PATH:./node_modules/.bin"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 zstyle ':omz:plugins:nvm' lazy true
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
