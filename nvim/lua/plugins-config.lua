@@ -28,13 +28,16 @@ vim.g.startify_change_to_dir = 0
 vim.g.startify_change_to_vcs_root = 1
 -- nvim-tree
 require('nvim-tree').setup({	
-	view = {
-		mappings = {
-		  list = {
-			{ key = "<C-[>", action = "dir_up" },
-		  },
-		},
-	},
+	on_attach = function(bufnr)
+		local api = require('nvim-tree.api')
+		local function opts(desc)
+			return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true  }
+		end
+		-- default mappings
+		api.config.mappings.default_on_attach(bufnr)
+		-- custom mappings
+		vim.keymap.set('n', '<C-[>', api.tree.change_root_to_parent, opts('Up'))
+	end
 })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -59,7 +62,7 @@ vim.g.neotex_enable = 2
 -- LazyGit
 vim.g.lazygit_floating_window_winblend = 0 -- transparency of floating window
 vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floating window
-vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'} -- customize lazygit popup window corner characters
+vim.g.lazygit_floating_window_border_chars = {'╭', '╮', '╰', '╯'} -- customize lazygit popup window corner characters
 vim.glazygit_floating_window_use_plenary = 1 -- use plenary.nvim to manage floating window if available
 
 -- LSP
