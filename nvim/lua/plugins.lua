@@ -8,7 +8,7 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'preservim/nerdcommenter'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
-Plug('donRaphaco/neotex', {['for'] = 'tex'})
+Plug 'lervag/vimtex'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'hrsh7th/nvim-cmp'
@@ -16,7 +16,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.0' })
+Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.4' })
 Plug 'ThePrimeagen/harpoon'
 Plug 'vimwiki/vimwiki'
 vim.call 'plug#end'

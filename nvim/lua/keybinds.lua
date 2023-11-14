@@ -5,11 +5,15 @@ utils.map('n', '<Space>', '')
 utils.map('x', '<Space>', '')
 vim.g.mapleader = ' '
 
+-- move through soft wrap lines
+utils.map('n', 'j', '(v:count == 0 ? "gj" : "j")', { expr = true })
+utils.map('n', 'k', '(v:count == 0 ? "gk" : "k")', { expr = true })
+
 -- move line up or down
 utils.map('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
 utils.map('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
 utils.map('v', '<A-j>', ':m >+1<CR>gv==gv')
-utils.map('v', '<A-j>', ':m <-2<CR>gv==gv')
+utils.map('v', '<A-k>', ':m <-2<CR>gv==gv')
 
 -- move between panes
 utils.map('n', '<A-h>', '<C-W>h')
@@ -60,6 +64,8 @@ utils.map('n', '<leader>gg', ':LazyGit<CR>', { silent = true })
 -- Harpoon
 utils.map('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')
 utils.map('n', '<leader>hm', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { silent = true })
+-- VimTex
+utils.map('n', '<leader>tc', ':VimtexCompileSS<CR>', { silent = true })
 -- Show floating diagnostics
 utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = false, silent = true})
 utils.map('n', 'D', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = false, silent = true})
