@@ -30,7 +30,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 # Start the compositor
-exec --no-startup-id picom --experimental-backends
+exec --no-startup-id picom -b
 # Start the wallpaper
 exec --no-startup-id nitrogen --restore
 
