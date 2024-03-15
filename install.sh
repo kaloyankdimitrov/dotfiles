@@ -1,11 +1,11 @@
 #!/bin/bash
 DIR=$(dirname $(realpath "$0"))
 # alacritty configuration
-if [ -f $HOME/.alacritty.yml ]
+if [ -f $HOME/.alacritty.toml ]
 then
-	rm $HOME/.alacritty.yml
+	rm $HOME/.alacritty.toml
 fi
-ln -s $DIR/.alacritty.yml $HOME/.alacritty.yml
+ln -s $DIR/.alacritty.toml $HOME/.alacritty.toml
 # install oh-my-zsh
 if [ -d $HOME/.oh-my-zsh ]
 then
